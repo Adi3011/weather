@@ -15,14 +15,14 @@ const getInfo = async(event) =>{
         datahide.classList.add('data_hide');
     }else{
         try{
-            let url = `http://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=54e8e1fc0e02c0a187cbfabcfc929d5b`;
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityVal}&units=metric&appid=54e8e1fc0e02c0a187cbfabcfc929d5b`;
             const response = await fetch(url);
             const data = await response.json();
             console.log(data)
             const arrData = [data];
 
             city_output.innerText = `${arrData[0].name} , ${arrData[0].sys.country}`;
-            temp_real_val.innerText =arrData[0].main.temp;
+            temp_real_val.innerText = arrData[0].main.temp;
             const tempMood =arrData[0].weather[0].main;
 
             if(tempMood == 'Clear'){
